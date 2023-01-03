@@ -1,0 +1,17 @@
+- hosts: localhost
+  roles:
+          - role: aws_ec2
+
+- hosts: tag_Task_kubernetes
+  roles:
+          - role: k8s_initial
+
+
+- hosts: tag_Name_master
+  roles:
+          - role: k8s_master
+
+
+- hosts: tag_Name_slave
+  roles:
+          - role: k8s_slave

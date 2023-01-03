@@ -1,0 +1,26 @@
+---
+# tasks file for aws_ec2
+- pip:
+    name: boto
+- amazon.aws.ec2:
+    key_name: "{{ aws_key }}"
+    group: "{{ sg }}"
+    group_id: "{{ sg_id }}"
+    instance_type: t2.micro
+    image: "{{ ami }}"
+    vpc_subnet_id:  "{{ vpc }}"
+    aws_access_key: "{{ access_key }}"
+    aws_secret_key: "{{ secret_key }}"
+    region: "{{ region }}"
+    wait: yes
+    count: "{{ count }}"
+    instance_tags:
+            Name: "{{ item }}"
+            Task: "kube"
+        # Kube: "{{ item }} "
+    assign_public_ip: yes
+  loop: "{{ kube_name }}"
+
+- pause:
+     minutes: 1
+

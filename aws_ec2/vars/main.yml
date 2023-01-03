@@ -1,0 +1,17 @@
+---
+# vars file for aws_ec2
+
+aws_key: "Main"
+sg: "webserver"
+sg_id: "sg-002b34dffb1e5a662"
+ami: "ami-0bcf5425cdc1d8a85"
+vpc: "subnet-abc2cbc3"
+region: "ap-south-1"
+count: 1
+kube_name:
+ - "master"
+ - "slave"
+instance_name: "Kube-Demo"
+access_key: 'access key'
+secret_key: 'secret_key'
+
